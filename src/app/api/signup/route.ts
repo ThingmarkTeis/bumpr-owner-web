@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getPool, initDB } from "@/lib/db";
+import { getSQL, initDB } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
@@ -10,12 +10,13 @@ export async function POST(req: Request) {
     }
 
     await initDB();
+    const sql = getSQL();
 
-    await getPool().query(
-      `INSERT INTO signups (name, email, location, villas) VALUES ($1, $2, $3, $4)
-       ON CONFLICT (email) DO UPDATE SET name = $1, location = $3, villas = $4`,
-      [name, email, location || null, villas || null]
-    );
+    await sql`
+      INSERT INTO signups (name, email, location, villas)
+      VALUES (${name}, ${email}, ${location || null}, ${villas || null})
+      ON CONFLICT (email) DO UPDATE SET name = ${name}, location = ${location || null}, villas = ${villas || null}
+    `;
 
     return NextResponse.json({ ok: true });
   } catch (err) {

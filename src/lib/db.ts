@@ -1,20 +1,17 @@
-import { Pool } from "pg";
+import postgres from "postgres";
 
-let pool: Pool;
+let sql: ReturnType<typeof postgres>;
 
-function getPool() {
-  if (!pool) {
-    pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false },
-    });
+function getSQL() {
+  if (!sql) {
+    sql = postgres(process.env.DATABASE_URL!, { ssl: "require" });
   }
-  return pool;
+  return sql;
 }
 
 export async function initDB() {
-  const p = getPool();
-  await p.query(`
+  const sql = getSQL();
+  await sql`
     CREATE TABLE IF NOT EXISTS signups (
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
@@ -23,7 +20,7 @@ export async function initDB() {
       villas TEXT,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
-  `);
+  `;
 }
 
-export { getPool };
+export { getSQL };
