@@ -95,7 +95,7 @@ export default function Home() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const villaOptions = ["1 villa", "2-3 villas", "4-10 villas", "10+ villas"];
+  const villaOptions = ["1", "2", "3", "4+"];
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -494,36 +494,24 @@ export default function Home() {
               onChange={(e) => setForm({ ...form, location: e.target.value })}
               className="w-full bg-[#fffdf5] border border-[#e8dfd2] rounded-[10px] px-4 py-4 text-base font-medium text-[#2a2520] placeholder:text-[#948d85] tracking-[-0.31px] outline-none focus:border-[#ffa314] transition-colors"
             />
-            <div className="relative">
-              <select
-                value={form.villas}
-                onChange={(e) => setForm({ ...form, villas: e.target.value })}
-                className="w-full bg-[#fffdf5] border border-[#e8dfd2] rounded-[10px] px-4 py-4 text-base font-medium text-[#2a2520] tracking-[-0.31px] outline-none focus:border-[#ffa314] transition-colors appearance-none"
-              >
-                <option value="" disabled className="text-[#948d85]">
-                  Number of villas
-                </option>
+            <div>
+              <p className="text-sm font-medium text-[#948d85] mb-2">How many villas?</p>
+              <div className="flex gap-2">
                 {villaOptions.map((opt) => (
-                  <option key={opt} value={opt}>
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => setForm({ ...form, villas: opt })}
+                    className={`flex-1 py-3 rounded-[10px] text-base font-bold transition-all ${
+                      form.villas === opt
+                        ? "bg-[#ffa314] text-white"
+                        : "bg-[#fffdf5] border border-[#e8dfd2] text-[#2a2520]"
+                    }`}
+                  >
                     {opt}
-                  </option>
+                  </button>
                 ))}
-              </select>
-              <svg
-                className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-              >
-                <path
-                  d="M5 7.5L10 12.5L15 7.5"
-                  stroke="#948d85"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              </div>
             </div>
             <button
               type="submit"
