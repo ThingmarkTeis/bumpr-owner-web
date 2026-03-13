@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -7,14 +7,14 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#ffa314",
+};
+
 export const metadata: Metadata = {
   title: "Bumpr — Villa Owners",
   description:
     "Why pay for a villa that sits empty? Fill empty nights with temporary guests and earn money while you wait for full-price bookings.",
-  other: {
-    "theme-color": "#ffa314",
-    "apple-mobile-web-app-status-bar-style": "default",
-  },
 };
 
 export default function RootLayout({
