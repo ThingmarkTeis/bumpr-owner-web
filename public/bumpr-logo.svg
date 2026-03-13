@@ -1,0 +1,16 @@
+<svg width="94" height="34" viewBox="0 0 94 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wave fill -->
+  <g transform="translate(30.76, 2.95) scale(1, 1)">
+    <svg width="31" height="8.2" viewBox="0 0 30.3819 7.14573" overflow="visible">
+      <path d="M12.549 7.14573C17.5576 1.17248 26.419 -5.38718 30.3819 7.14573C24.4375 -0.769782 16.9852 3.61608 12.549 7.14573C7.26523 3.18798 2.42174 6.70597 0 7.14573C6.60475 1.86874 9.24665 2.52836 12.549 7.14573Z" fill="#EC6D18"/>
+    </svg>
+  </g>
+  <!-- Wave outline -->
+  <g transform="translate(30.76, 2.95) scale(1, 1)">
+    <svg width="31" height="8.2" viewBox="0 0 31.1108 8.19128" overflow="visible">
+      <path d="M12.8374 7.60762C17.846 1.63437 26.7074 -4.92529 30.6703 7.60762C24.7259 -0.307893 17.2736 4.07797 12.8374 7.60762ZM12.8374 7.60762C9.53506 2.99025 6.89316 2.33063 0.288405 7.60762C2.71015 7.16786 7.55364 3.64987 12.8374 7.60762Z" stroke="#EC6D18" stroke-width="0.924072"/>
+    </svg>
+  </g>
+  <!-- Text "Bumpr" -->
+  <text x="0" y="28" font-family="'Inter', sans-serif" font-weight="900" font-size="29.6" fill="white" letter-spacing="-0.9">Bumpr</text>
+</svg>
