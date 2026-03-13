@@ -1,12 +1,20 @@
 import { Pool } from "pg";
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
-});
+let pool: Pool;
+
+function getPool() {
+  if (!pool) {
+    pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
+    });
+  }
+  return pool;
+}
 
 export async function initDB() {
-  await pool.query(`
+  const p = getPool();
+  await p.query(`
     CREATE TABLE IF NOT EXISTS signups (
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
@@ -18,4 +26,4 @@ export async function initDB() {
   `);
 }
 
-export default pool;
+export { getPool };

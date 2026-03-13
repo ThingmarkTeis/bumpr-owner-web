@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import pool, { initDB } from "@/lib/db";
+import { getPool, initDB } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
     await initDB();
 
-    await pool.query(
+    await getPool().query(
       `INSERT INTO signups (name, email, location, villas) VALUES ($1, $2, $3, $4)
        ON CONFLICT (email) DO UPDATE SET name = $1, location = $3, villas = $4`,
       [name, email, location || null, villas || null]
