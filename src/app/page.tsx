@@ -257,7 +257,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-3 relative z-[1]">
               {/* Card 1: No Commission */}
-              <div className="bg-white border border-white/40 rounded-full shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2">
+              <div className="bg-white border border-white/40 rounded-l-full rounded-r-[30px] shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2 mr-8">
                 <div className="w-14 h-14 rounded-full border border-[#e8920e]/30 flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, #fff9f0, #ffe8c4)" }}>
                   <span className="text-[26px] font-black text-[#e8920e] tracking-[-1px]">0%</span>
                 </div>
