@@ -223,8 +223,8 @@ export default function Home() {
     <main className="flex flex-col items-center bg-white min-h-screen">
 
       {/* ══════════════ HERO ══════════════ */}
-      <section className="w-full bg-[#ffa314] relative overflow-hidden">
-        <div className="max-w-lg mx-auto px-6 pt-6 pb-16 min-h-[850px] flex flex-col relative z-10">
+      <section className="w-full bg-[#ffa314] relative overflow-hidden min-h-[100dvh]">
+        <div className="max-w-lg mx-auto px-6 pt-6 pb-16 min-h-[100dvh] flex flex-col relative z-10">
           {/* Header */}
           <header className="flex items-center justify-between">
             <BumprLogo />
@@ -235,68 +235,72 @@ export default function Home() {
             </div>
           </header>
 
-          {/* Floating currency symbols background */}
-          <div className="absolute inset-0 opacity-30 pointer-events-none select-none overflow-hidden">
-            <span className="absolute text-[120px] font-black text-[#d92d20]/60 -rotate-[15deg] -left-4 top-[70px] leading-none">$</span>
-            <span className="absolute text-[110px] font-black text-[#d92d20]/60 -rotate-[20deg] right-4 top-[50px] leading-none">$</span>
-            <span className="absolute text-[90px] font-black text-[#d92d20]/60 rotate-[12deg] right-8 top-[250px] leading-none">Rp</span>
-            <span className="absolute text-[70px] font-black text-[#d92d20]/60 rotate-[25deg] left-8 bottom-[280px] leading-none">$</span>
+          {/* Floating currency symbols — scattered around heading area */}
+          <div className="absolute left-0 right-0 top-[15%] bottom-[45%] opacity-30 pointer-events-none select-none">
+            <span className="absolute text-[120px] font-black text-[#d92d20]/60 -rotate-[15deg] left-[2%] top-[5%] leading-none">$</span>
+            <span className="absolute text-[110px] font-black text-[#d92d20]/60 -rotate-[20deg] right-[5%] top-0 leading-none">$</span>
+            <span className="absolute text-[90px] font-black text-[#d92d20]/60 rotate-[12deg] right-[10%] bottom-[10%] leading-none">Rp</span>
+            <span className="absolute text-[70px] font-black text-[#d92d20]/60 rotate-[25deg] left-[10%] bottom-0 leading-none">$</span>
           </div>
 
           {/* Heading */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center relative z-10 -mt-8">
-            <h1 className="text-[38px] font-black text-white leading-[40px] tracking-[-1.5px] max-w-[270px]">
-              {s.heroBefore}
-              <span className="text-[#d92d20]">{s.heroAccent}</span>
-              {s.heroAfter}
+          <div className="flex-1 flex flex-col items-center justify-center text-center relative z-10">
+            <h1 className="text-[38px] font-black text-white leading-[40px] tracking-[-1.5px]">
+              {s.heroBefore}{s.heroAccent}{s.heroAfter}
             </h1>
           </div>
 
           {/* Value prop cards */}
-          <div className="flex flex-col gap-3 relative z-10">
-            {/* Card 1: No Commission */}
-            <div className="bg-white border border-white/40 rounded-full shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2">
-              <div className="w-14 h-14 rounded-full border border-[#e8920e]/30 flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, #fff9f0, #ffe8c4)" }}>
-                <span className="text-[26px] font-black text-[#e8920e] tracking-[-1px]">0%</span>
-              </div>
-              <div>
-                <p className="text-[11px] font-black text-[#e8920e] uppercase tracking-[0.6px]">{s.noCommLabel}</p>
-                <p className="text-[14px] font-bold text-[#2a2520] leading-[17px]">{s.noCommSub}</p>
-              </div>
-            </div>
+          <div className="relative z-10">
+            {/* Vertical dashed line */}
+            <div className="absolute left-6 top-6 bottom-[140px] w-0.5 bg-white/20 border-l border-dashed border-white/10 rounded-full" />
 
-            {/* Card 2: Take Villa Back */}
-            <div className="bg-[#5e8a82] border-t border-white/20 rounded-l-full rounded-r-[30px] shadow-[0px_8px_30px_rgba(0,0,0,0.2)] flex items-center justify-between pl-5 pr-2 py-3 ml-10">
-              <p className="text-[14px] font-semibold text-white/95">{s.takeBack}</p>
-              <div className="bg-black/20 border border-white/10 rounded-full flex items-center justify-end pl-0.5 pr-1 py-0.5 w-14 h-8">
-                <div className="w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M9 3L4.5 7.5L3 6" stroke="#5e8a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <div className="flex flex-col gap-3">
+              {/* Card 1: No Commission */}
+              <div className="bg-white border border-white/40 rounded-full shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2 relative z-10">
+                <div className="w-14 h-14 rounded-full border border-[#e8920e]/30 flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, #fff9f0, #ffe8c4)" }}>
+                  <span className="text-[26px] font-black text-[#e8920e] tracking-[-1px]">0%</span>
+                </div>
+                <div>
+                  <p className="text-[11px] font-black text-[#e8920e] uppercase tracking-[0.6px]">{s.noCommLabel}</p>
+                  <p className="text-[14px] font-bold text-[#2a2520] leading-[17px]">{s.noCommSub}</p>
                 </div>
               </div>
-            </div>
 
-            {/* Card 3: Live Demand */}
-            <div className="bg-white/10 border border-white/20 rounded-[28px] shadow-[0px_10px_15px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-4 pr-5 py-4">
-              {/* Traveler avatars */}
-              <div className="flex -space-x-3 shrink-0">
-                <Image src="/traveler3.png" alt="" width={38} height={38} className="w-[38px] h-[38px] rounded-full border-2 border-[#e8920e] object-cover" />
-                <Image src="/traveler2.png" alt="" width={38} height={38} className="w-[38px] h-[38px] rounded-full border-2 border-[#e8920e] object-cover" />
-                <Image src="/traveler1.png" alt="" width={38} height={38} className="w-[38px] h-[38px] rounded-full border-2 border-[#e8920e] object-cover" />
-                <div className="w-[31px] h-[19px] bg-[#d92d20] border border-white rounded-full flex items-center justify-center self-end -ml-2 opacity-55 shadow-sm">
-                  <span className="text-[9px] font-black text-white">+12</span>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="relative">
-                    <div className="w-2 h-2 bg-[#00c950] rounded-full" />
-                    <div className="absolute inset-0 w-3 h-3 bg-[#05df72] rounded-full opacity-30 -m-0.5" />
+              {/* Card 2: Take Villa Back */}
+              <div className="bg-[#5e8a82] border-t border-white/20 rounded-l-[30px] rounded-r-full shadow-[0px_8px_30px_rgba(0,0,0,0.2)] flex items-center justify-between pl-5 pr-2 py-3 ml-10">
+                <p className="text-[14px] font-semibold text-white/95">{s.takeBack}</p>
+                <div className="bg-black/20 border border-white/10 rounded-full flex items-center justify-end pl-0.5 pr-1 py-0.5 w-14 h-8">
+                  <div className="w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M9 3L4.5 7.5L3 6" stroke="#5e8a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </div>
-                  <span className="text-[10px] font-black text-white/90 uppercase tracking-[1.1px]">{s.liveDemand}</span>
                 </div>
-                <p className="text-[14px] font-semibold text-white leading-[17px]">{s.liveDemandSub}</p>
+              </div>
+
+              {/* Card 3: Live Demand */}
+              <div className="bg-white/10 border border-white/20 rounded-[28px] shadow-[0px_10px_15px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-4 pr-5 py-4">
+                {/* Traveler avatars */}
+                <div className="flex -space-x-3 shrink-0">
+                  <Image src="/traveler3.png" alt="" width={38} height={38} className="w-[38px] h-[38px] rounded-full border-2 border-[#e8920e] object-cover" />
+                  <Image src="/traveler2.png" alt="" width={38} height={38} className="w-[38px] h-[38px] rounded-full border-2 border-[#e8920e] object-cover" />
+                  <Image src="/traveler1.png" alt="" width={38} height={38} className="w-[38px] h-[38px] rounded-full border-2 border-[#e8920e] object-cover" />
+                  <div className="w-[31px] h-[19px] bg-[#d92d20] border border-white rounded-full flex items-center justify-center self-end -ml-2 opacity-55 shadow-sm">
+                    <span className="text-[9px] font-black text-white">+12</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="relative">
+                      <div className="w-2 h-2 bg-[#00c950] rounded-full" />
+                      <div className="absolute inset-0 w-3 h-3 bg-[#05df72] rounded-full opacity-30 -m-0.5" />
+                    </div>
+                    <span className="text-[10px] font-black text-white/90 uppercase tracking-[1.1px]">{s.liveDemand}</span>
+                  </div>
+                  <p className="text-[14px] font-semibold text-white leading-[17px]">{s.liveDemandSub}</p>
+                </div>
               </div>
             </div>
+
           </div>
 
         </div>
@@ -305,17 +309,17 @@ export default function Home() {
       {/* ══════════════ COSTS SECTION ══════════════ */}
       <section className="w-full bg-[#fffdf5] py-20">
         <div className="max-w-lg mx-auto px-6">
-          <h2 className="text-[32px] font-black text-[#2a2520] text-center leading-[37px] tracking-[-0.4px] max-w-[270px] mx-auto">
+          <h2 className="text-[32px] font-black text-[#2a2520] text-center leading-[37px] tracking-[-0.4px] max-w-[340px] mx-auto">
             {s.costsTitle}
           </h2>
 
           {/* Costs vs Standby cards */}
-          <div className="flex gap-0 mt-10 relative">
+          <div className="relative mt-10" style={{ height: 305 }}>
             {/* Vertical divider */}
-            <div className="absolute left-1/2 top-[12%] bottom-[12%] w-px bg-[#e5e5e5]" />
+            <div className="absolute left-1/2 top-[37%] bottom-[5%] w-px bg-[#e5e5e5]" />
 
-            {/* Costs OUT card */}
-            <div className="flex-1">
+            {/* Costs OUT card — left, top-aligned */}
+            <div className="absolute left-0 top-0 w-[48%]">
               <div className="bg-white border border-[rgba(217,45,32,0.2)] rounded-t-2xl rounded-b-lg shadow-md overflow-hidden">
                 <p className="text-[12px] font-black text-[#d92d20] tracking-[1.2px] uppercase text-center pt-4 pb-3 opacity-80">{s.costsOut}</p>
                 <div className="flex flex-col gap-2 px-3 pb-4">
@@ -329,17 +333,17 @@ export default function Home() {
               </div>
               {/* Down arrow */}
               <div className="flex justify-center mt-3 opacity-60">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0l-5-5m5 5l5-5" stroke="#a3a3a3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0l-5-5m5 5l5-5" stroke="#a3a3a3" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
             </div>
 
-            {/* Standby IN card */}
-            <div className="flex-1 mt-8">
-              {/* Arrows pointing down into card */}
+            {/* Standby IN card — right, pushed down */}
+            <div className="absolute right-0 top-[155px] w-[48%]">
+              {/* Orange up arrows */}
               <div className="flex justify-center mb-2">
                 <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
-                  <path d="M12 0v24m0 0l-4-4m4 4l4-4" stroke="#e8920e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 16v24m0 0l-4-4m4 4l4-4" stroke="#e8920e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
+                  <path d="M12 24V0m0 0l-4 4m4-4l4 4" stroke="#e8920e" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 40V16m0 0l-4 4m4-4l4 4" stroke="#e8920e" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
                 </svg>
               </div>
               <div className="rounded-2xl border border-[#e8920e] shadow-[0px_20px_25px_rgba(0,0,0,0.1)] overflow-hidden" style={{ background: "linear-gradient(180deg, #e8920e, #ffa314)" }}>
@@ -355,7 +359,7 @@ export default function Home() {
           </div>
 
           {/* Description card */}
-          <div className="bg-white border border-[#eae4d8] rounded-2xl shadow-sm p-6 mt-8">
+          <div className="bg-white border border-[#eae4d8] rounded-2xl shadow-sm p-6 mt-16">
             <p className="text-[16px] font-semibold text-[#6b655c] text-center leading-[22px] tracking-[-0.3px]">
               {s.costsDesc}
             </p>
@@ -381,19 +385,19 @@ export default function Home() {
       {/* ══════════════ HOW YOU TAKE YOUR VILLA BACK ══════════════ */}
       <section className="w-full bg-[#2a2520] overflow-hidden">
         <div className="max-w-lg mx-auto px-6 py-24">
-          <h2 className="text-[32px] font-black text-white text-center leading-[35px] tracking-[-0.4px] max-w-[220px] mx-auto mb-16">
+          <h2 className="text-[32px] font-black text-white text-center leading-[35px] tracking-[-0.4px] max-w-[320px] mx-auto mb-16">
             {s.howTitle}
           </h2>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-[26px] top-10 bottom-10 w-1 bg-white/10 rounded-full" />
-
-            <div className="flex flex-col gap-10">
+          <div>
+            <div className="flex flex-col gap-8">
               {/* Step 1 */}
               <div className="flex items-start gap-4">
-                <div className="w-[52px] h-[52px] bg-[#5e8a82] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center shrink-0 relative z-10">
-                  <Image src="/icons/icon-booking.svg" alt="" width={24} height={24} />
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-[52px] h-[52px] bg-[#5e8a82] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
+                    <Image src="/icons/icon-booking.svg" alt="" width={24} height={24} />
+                  </div>
+                  <div className="w-1 flex-1 bg-white/10 rounded-full mt-2" />
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-white tracking-[-0.9px]">{s.howStep1}</h3>
@@ -405,8 +409,11 @@ export default function Home() {
 
               {/* Step 2 */}
               <div className="flex items-start gap-4">
-                <div className="w-[52px] h-[52px] bg-[#e8920e] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center shrink-0 relative z-10">
-                  <Image src="/icons/icon-button.svg" alt="" width={24} height={24} />
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-[52px] h-[52px] bg-[#e8920e] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
+                    <span className="text-[20px] font-black text-white">$</span>
+                  </div>
+                  <div className="w-1 flex-1 bg-white/10 rounded-full mt-2" />
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-white tracking-[-0.9px]">{s.howStep2}</h3>
@@ -434,8 +441,11 @@ export default function Home() {
 
               {/* Step 3 */}
               <div className="flex items-start gap-4">
-                <div className="w-[52px] h-[52px] bg-[#404040] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center shrink-0 relative z-10">
-                  <Image src="/icons/icon-notify.svg" alt="" width={20} height={20} />
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-[52px] h-[52px] bg-[#404040] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
+                    <Image src="/icons/icon-notify.svg" alt="" width={20} height={20} />
+                  </div>
+                  <div className="w-1 flex-1 bg-white/10 rounded-full mt-2" />
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-white tracking-[-0.9px]">{s.howStep3}</h3>
@@ -453,9 +463,11 @@ export default function Home() {
               </div>
 
               {/* 18h big circle + description */}
-              <div className="flex items-center gap-4 -ml-4">
-                <div className="w-[84px] h-[84px] bg-[#e8920e] border-[6px] border-[#2a2520] rounded-full shadow-[0px_0px_30px_rgba(232,146,14,0.3)] flex items-center justify-center shrink-0 relative z-10">
-                  <span className="text-[36px] font-black text-white tracking-[-1.4px]">18h</span>
+              <div className="flex items-center gap-4 mt-4 mb-4">
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-[84px] h-[84px] bg-[#e8920e] border-[6px] border-[#2a2520] rounded-full shadow-[0px_0px_30px_rgba(232,146,14,0.3)] flex items-center justify-center">
+                    <span className="text-[36px] font-black text-white tracking-[-1.4px]">18h</span>
+                  </div>
                 </div>
                 <div className="flex-1 pl-2">
                   <div className="bg-[rgba(232,146,14,0.1)] border border-[rgba(232,146,14,0.3)] rounded-[14px] px-4 py-4">
@@ -466,8 +478,10 @@ export default function Home() {
 
               {/* Step 4 */}
               <div className="flex items-start gap-4">
-                <div className="w-[52px] h-[52px] bg-[#5e8a82] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center shrink-0 relative z-10">
-                  <Image src="/icons/icon-ready.svg" alt="" width={24} height={24} />
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-[52px] h-[52px] bg-[#5e8a82] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
+                    <Image src="/icons/icon-ready.svg" alt="" width={24} height={24} />
+                  </div>
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-[#5e8a82] tracking-[-0.9px]">{s.howStep4}</h3>
@@ -543,7 +557,7 @@ export default function Home() {
       {/* ══════════════ NO COMMISSION ══════════════ */}
       <section className="w-full bg-[#ffa314]">
         <div className="max-w-lg mx-auto px-6 py-20">
-          <h2 className="text-[34px] font-black text-white text-center leading-[37px] tracking-[-1.3px] max-w-[245px] mx-auto">
+          <h2 className="text-[34px] font-black text-white text-center leading-[37px] tracking-[-1.3px] max-w-[340px] mx-auto">
             {s.noCommTitle}
           </h2>
           <p className="text-base font-medium text-white/90 text-center leading-[22px] tracking-[-0.3px] mt-6 max-w-[320px] mx-auto">
@@ -592,7 +606,7 @@ export default function Home() {
             </div>
           </div>
 
-          <h2 className="text-[28px] font-black text-[#2a2520] text-center leading-[32px] tracking-[-0.3px] max-w-[299px] mx-auto">
+          <h2 className="text-[28px] font-black text-[#2a2520] text-center leading-[32px] tracking-[-0.3px] max-w-[340px] mx-auto">
             {s.whoQuote}
           </h2>
 
@@ -641,10 +655,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CTA */}
-          <a href="#signup" className="block mt-12 w-full bg-[#ffa314] text-white font-black text-[16px] text-center py-4 rounded-full shadow-[0px_8px_30px_rgba(0,0,0,0.08)] hover:brightness-110 transition-all">
-            {s.ctaTop}
-          </a>
         </div>
       </section>
 
@@ -770,7 +780,7 @@ export default function Home() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.716-1.244A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.47-.738-6.228-1.992l-.356-.264-3.011.793.808-2.953-.288-.458A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fillRule="evenodd"/></svg>
             WhatsApp us
           </a>
-          <p className="text-[13px] text-white/30 mt-2">Bumpr {new Date().getFullYear()}</p>
+          <p className="text-[13px] text-white/30 mt-2">&copy; Bumpr {new Date().getFullYear()}</p>
         </div>
       </footer>
     </main>
