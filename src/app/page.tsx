@@ -224,8 +224,11 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center bg-white min-h-screen">
       {/* ══════════════ HERO ══════════════ */}
-      <section className="w-full bg-[#ffa314]">
-        <div className="max-w-lg mx-auto px-6 pt-6 pb-12 min-h-[852px] flex flex-col">
+      <section className="w-full bg-[#ffa314] relative overflow-hidden">
+        {/* Giant 18h background */}
+        <span className="absolute right-[-30px] bottom-[160px] text-[220px] font-black text-white/[0.06] leading-none tracking-[-10px] select-none pointer-events-none rotate-[-8deg]">18h</span>
+
+        <div className="max-w-lg mx-auto px-6 pt-6 pb-12 min-h-[852px] flex flex-col relative z-10">
           {/* Header */}
           <header className="flex items-center justify-between">
             <BumprLogo />
@@ -248,43 +251,54 @@ export default function Home() {
 
           {/* Main heading */}
           <div className="flex-1 flex items-center justify-center">
-            <h2 className="text-[38px] font-black text-white text-center leading-[48px] tracking-[-1.53px]">
+            <h2 className="text-[38px] font-black text-white text-center leading-[48px] tracking-[-1.53px] relative">
               {s.heroH2Before}
               <span className="relative inline-block">
-                <span className="relative z-10">{s.heroHighlight}</span>
-                <span className="absolute inset-x-[-6px] bottom-[2px] h-[40%] bg-[#e0700a] rounded-sm -skew-x-2 z-0" />
+                <span className="relative z-10 text-[#ff3b3b]">{s.heroHighlight}</span>
+                {/* Floating currency symbols */}
+                <span className="absolute -top-5 -left-3 text-[22px] text-[#ff3b3b]/40 font-black rotate-[-15deg] select-none">$</span>
+                <span className="absolute -top-3 -right-5 text-[18px] text-[#ff3b3b]/30 font-black rotate-[12deg] select-none">Rp</span>
+                <span className="absolute -bottom-2 -right-3 text-[16px] text-[#ff3b3b]/25 font-bold rotate-[-8deg] select-none">$</span>
+                <span className="absolute -bottom-4 left-2 text-[14px] text-[#ff3b3b]/20 font-bold rotate-[20deg] select-none">Rp</span>
               </span>
               {s.heroH2After}
             </h2>
           </div>
 
-          {/* Value props */}
-          <div className="flex flex-col gap-3">
-            <div className="backdrop-blur-sm bg-white/12 border border-white/15 rounded-2xl px-5 py-5">
-              <div className="flex items-center gap-4">
-                <span className="text-[48px] font-black text-white leading-none tracking-[-2px]">0%</span>
-                <div className="h-10 w-px bg-white/20" />
-                <div>
-                  <p className="text-base font-bold text-white tracking-[-0.3px]">{s.commission}</p>
-                  <p className="text-sm text-white/60 mt-0.5">{s.commissionSub}</p>
-                </div>
-              </div>
+          {/* Value props — raw typography, no boxes */}
+          <div className="space-y-6 mb-8">
+            {/* 18h — the anchor */}
+            <div className="flex items-end gap-3">
+              <span className="text-[72px] font-black text-white leading-[0.8] tracking-[-4px]">18h</span>
+              <p className="text-[15px] font-semibold text-white/90 leading-snug pb-2">
+                {s.takeBack} {s.takeBackLine2}.<br />
+                <span className="text-white/60 font-medium">{s.takeBackSub.replace(" — ", "")}</span>
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div className="backdrop-blur-sm bg-white/12 border border-white/15 rounded-2xl px-4 py-4 flex flex-col justify-between min-h-[100px] relative overflow-hidden">
-                <span className="absolute -right-1 -bottom-3 text-[64px] font-black text-white/[0.07] leading-none tracking-[-3px] select-none">18h</span>
-                <p className="text-[20px] font-black text-white leading-tight tracking-[-0.5px] relative z-10">{s.takeBack}<br />{s.takeBackLine2}</p>
-                <p className="text-[12px] text-white/50 mt-2 leading-snug relative z-10"><span className="font-bold text-white/80">18h</span>{s.takeBackSub}</p>
-              </div>
-              <div className="backdrop-blur-sm bg-white/12 border border-white/15 rounded-2xl px-4 py-4 flex flex-col justify-between min-h-[100px]">
-                <p className="text-[20px] font-black text-white leading-tight tracking-[-0.5px]">{s.guestsReady}<br />{s.guestsReadyLine2}</p>
-                <p className="text-[12px] text-white/50 mt-2 leading-snug">{s.guestsReadySub}</p>
-              </div>
+            {/* Divider */}
+            <div className="h-px bg-white/15 w-2/3" />
+
+            {/* 0% */}
+            <div className="flex items-end gap-3">
+              <span className="text-[52px] font-black text-white leading-[0.85] tracking-[-3px]">0%</span>
+              <p className="text-[15px] font-semibold text-white/90 leading-snug pb-1.5">
+                {s.commission}.<br />
+                <span className="text-white/60 font-medium">{s.commissionSub}</span>
+              </p>
             </div>
+
+            {/* Divider */}
+            <div className="h-px bg-white/15 w-1/3" />
+
+            {/* Guests waiting */}
+            <p className="text-[18px] font-bold text-white/90 tracking-[-0.3px]">
+              {s.guestsReady} {s.guestsReadyLine2} —{" "}
+              <span className="text-white/60 font-medium">{s.guestsReadySub}</span>
+            </p>
           </div>
 
-          <button className="mt-6 w-full bg-[#fff9f0] text-[#ffa314] font-black text-lg py-4 rounded-full shadow-[0px_8px_30px_rgba(0,0,0,0.12)]">
+          <button className="w-full bg-[#fff9f0] text-[#ffa314] font-black text-lg py-4 rounded-full shadow-[0px_8px_30px_rgba(0,0,0,0.12)]">
             {s.cta}
           </button>
         </div>
