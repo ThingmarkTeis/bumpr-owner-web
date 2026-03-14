@@ -14,7 +14,7 @@ const t = {
     heroAfter: " every night your villa is empty..",
     ctaTop: "Sign up — no commitment",
     // Hero cards
-    noCommLabel: "No commission",
+    noCommLabel: "You get 100%",
     noCommSub: "we charge the guest, not you",
     takeBack: "Take your villa back anytime",
     liveDemand: "Live Demand",
@@ -24,8 +24,8 @@ const t = {
     costsOut: "COSTS OUT",
     costItems: ["Staff", "Pool", "Garden", "Electricity", "Water", "Repairs"],
     standbyIn: "STANDBY IN",
-    standbyDesc: "Bumpr guests cover it all.",
-    costsDesc: "Bumpr guests pay nightly. Enough to cover your villa\u2019s running costs \u2014 which you were paying yourself for an empty villa.",
+    standbyDesc: "Bumpr guests cover it all, and more.",
+    costsDesc: "Bumpr guests pay nightly. Enough to cover your villa\u2019s running costs + profits \u2014 you choose your standby rate.",
     costs18h: "And when a full-price booking comes \u2014 18 hours, your villa is yours again.",
     // How you take villa back
     howTitle: "How You Take Your Villa Back",
@@ -42,6 +42,7 @@ const t = {
     how18h: "Guest has 18 hours to move. Bumpr finds them another villa.",
     howStep4: "Your villa is ready",
     howStep4Desc: "Guest has moved. Your villa is ready for your full-price guest.",
+    howEarned: "You earned twice.",
     // Calendar
     diffTitle: "See the Difference",
     withoutBumpr: "Without Bumpr",
@@ -91,7 +92,7 @@ const t = {
     heroAccent: "rugi",
     heroAfter: " setiap malam villa Anda kosong..",
     ctaTop: "Daftar \u2014 tanpa komitmen",
-    noCommLabel: "Tanpa komisi",
+    noCommLabel: "Anda dapat 100%",
     noCommSub: "kami kenakan biaya ke tamu, bukan Anda",
     takeBack: "Ambil kembali villa kapan saja",
     liveDemand: "Permintaan Aktif",
@@ -100,8 +101,8 @@ const t = {
     costsOut: "BIAYA KELUAR",
     costItems: ["Staf", "Kolam", "Taman", "Listrik", "Air", "Perbaikan"],
     standbyIn: "STANDBY MASUK",
-    standbyDesc: "Tamu Bumpr menanggung semuanya.",
-    costsDesc: "Tamu Bumpr membayar per malam. Cukup untuk menutupi biaya operasional villa Anda \u2014 yang sebelumnya Anda bayar sendiri untuk villa kosong.",
+    standbyDesc: "Tamu Bumpr menanggung semuanya, dan lebih.",
+    costsDesc: "Tamu Bumpr membayar per malam. Cukup untuk menutupi biaya operasional villa Anda + keuntungan \u2014 Anda yang menentukan tarif standby.",
     costs18h: "Dan saat booking harga penuh datang \u2014 18 jam, villa kembali milik Anda.",
     howTitle: "Cara Mengambil Kembali Villa Anda",
     howStep1: "Anda dapat booking harga penuh",
@@ -117,6 +118,7 @@ const t = {
     how18h: "Tamu punya 18 jam untuk pindah. Bumpr carikan villa lain.",
     howStep4: "Villa Anda siap",
     howStep4Desc: "Tamu sudah pindah. Villa siap untuk tamu harga penuh Anda.",
+    howEarned: "Anda menghasilkan dua kali lipat.",
     diffTitle: "Lihat Perbedaannya",
     withoutBumpr: "Tanpa Bumpr",
     withBumpr: "Dengan Bumpr",
@@ -259,7 +261,7 @@ export default function Home() {
               {/* Card 1: No Commission */}
               <div className="bg-white border border-white/40 rounded-l-full rounded-r-[30px] shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2 mr-8">
                 <div className="w-14 h-14 rounded-full border border-[#e8920e]/30 flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, #fff9f0, #ffe8c4)" }}>
-                  <span className="text-[26px] font-black text-[#e8920e] tracking-[-1px]">0%</span>
+                  <span className="text-[18px] font-black text-[#e8920e] tracking-[-1px]">100%</span>
                 </div>
                 <div>
                   <p className="text-[11px] font-black text-[#e8920e] uppercase tracking-[0.6px]">{s.noCommLabel}</p>
@@ -425,7 +427,7 @@ export default function Home() {
                       <p className="text-[14px] font-medium text-white/70 leading-[19px]">{s.howStep2Desc}</p>
                     </div>
                     <div className="px-4 py-3">
-                      <div className="bg-[#d92d20] rounded-[14px] shadow-[0px_0px_20px_rgba(217,45,32,0.4)] flex items-center justify-center gap-2 py-3">
+                      <div className="bg-[#e8920e] rounded-[14px] shadow-[0px_0px_20px_rgba(232,146,14,0.4)] flex items-center justify-center gap-2 py-3">
                         <span className="text-[16px] font-black text-white tracking-[-0.3px]">{s.howStep2Btn}</span>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9h10.5m0 0L9.75 4.5M14.25 9l-4.5 4.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       </div>
@@ -473,7 +475,11 @@ export default function Home() {
                 </div>
                 <div className="flex-1 pl-2">
                   <div className="bg-[rgba(232,146,14,0.1)] border border-[rgba(232,146,14,0.3)] rounded-[14px] px-4 py-4">
-                    <p className="text-[15px] font-bold text-white leading-[21px] tracking-[-0.2px]">{s.how18h}</p>
+                    <p className="text-[15px] font-bold text-white leading-[21px] tracking-[-0.2px]">
+                      {s.how18h.split("Bumpr").map((part, i, arr) => (
+                        <span key={i}>{part}{i < arr.length - 1 && <span className="text-[#ffa314]">Bumpr</span>}</span>
+                      ))}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -491,6 +497,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Earned twice */}
+          <div className="mt-16 text-center">
+            <p className="text-[28px] font-black text-white tracking-[-0.8px] leading-[1.1]">
+              {s.howEarned}
+            </p>
+            <div className="mt-3 mx-auto w-12 h-1 bg-[#e8920e] rounded-full" />
           </div>
         </div>
       </section>
@@ -556,8 +570,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════ NO COMMISSION ══════════════ */}
-      <section className="w-full bg-[#ffa314]">
+      {/* ══════════════ NO COMMISSION (hidden for now) ══════════════ */}
+      <section className="w-full bg-[#ffa314] hidden">
         <div className="max-w-lg mx-auto px-6 py-20">
           <h2 className="text-[34px] font-black text-white text-center leading-[37px] tracking-[-1.3px] max-w-[340px] mx-auto">
             {s.noCommTitle}
