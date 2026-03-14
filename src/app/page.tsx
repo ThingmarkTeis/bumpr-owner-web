@@ -223,12 +223,12 @@ export default function Home() {
     <main className="flex flex-col items-center bg-white min-h-screen">
 
       {/* ══════════════ HERO ══════════════ */}
-      <section className="w-full bg-[#ffa314] relative overflow-hidden min-h-[100dvh]">
-        <div className="max-w-lg mx-auto px-6 pt-6 pb-16 min-h-[100dvh] flex flex-col relative z-10">
+      <section className="w-full bg-[#ffa314] relative overflow-hidden min-h-screen">
+        <div className="max-w-lg mx-auto px-6 pt-6 pb-16 min-h-screen flex flex-col relative z-10">
           {/* Header */}
           <header className="flex items-center justify-between">
             <BumprLogo />
-            <div className="flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full pl-3 pr-1 py-0.5">
+            <div className="flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full pl-3 pr-3 py-1.5 h-[37px]">
               <button onClick={() => setLang("en")} className={`font-medium text-base transition-colors ${lang === "en" ? "text-white" : "text-white/50"}`}>EN</button>
               <span className="text-white/30 text-[15px] font-light">|</span>
               <button onClick={() => setLang("id")} className={`font-medium text-base transition-colors ${lang === "id" ? "text-white" : "text-white/50"}`}>ID</button>
@@ -253,11 +253,11 @@ export default function Home() {
           {/* Value prop cards */}
           <div className="relative z-10">
             {/* Vertical dashed line */}
-            <div className="absolute left-6 top-6 bottom-[140px] w-0.5 bg-white/20 border-l border-dashed border-white/10 rounded-full" />
+            <div className="absolute left-6 top-6 bottom-0 w-[2px] bg-white/20 rounded-full z-0" />
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 relative z-[1]">
               {/* Card 1: No Commission */}
-              <div className="bg-white border border-white/40 rounded-full shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2 relative z-10">
+              <div className="bg-white border border-white/40 rounded-full shadow-[0px_20px_25px_rgba(0,0,0,0.1)] flex items-center gap-4 pl-2 pr-6 py-2">
                 <div className="w-14 h-14 rounded-full border border-[#e8920e]/30 flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, #fff9f0, #ffe8c4)" }}>
                   <span className="text-[26px] font-black text-[#e8920e] tracking-[-1px]">0%</span>
                 </div>
@@ -389,7 +389,9 @@ export default function Home() {
             {s.howTitle}
           </h2>
 
-          <div>
+          <div className="relative">
+            {/* Continuous vertical line */}
+            <div className="absolute left-[25px] top-[40px] bottom-[40px] w-1 bg-white/10 rounded-full" />
             <div className="flex flex-col gap-8">
               {/* Step 1 */}
               <div className="flex items-start gap-4">
@@ -397,7 +399,7 @@ export default function Home() {
                   <div className="w-[52px] h-[52px] bg-[#5e8a82] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
                     <Image src="/icons/icon-booking.svg" alt="" width={24} height={24} />
                   </div>
-                  <div className="w-1 flex-1 bg-white/10 rounded-full mt-2" />
+
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-white tracking-[-0.9px]">{s.howStep1}</h3>
@@ -413,7 +415,7 @@ export default function Home() {
                   <div className="w-[52px] h-[52px] bg-[#e8920e] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
                     <span className="text-[20px] font-black text-white">$</span>
                   </div>
-                  <div className="w-1 flex-1 bg-white/10 rounded-full mt-2" />
+
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-white tracking-[-0.9px]">{s.howStep2}</h3>
@@ -445,7 +447,7 @@ export default function Home() {
                   <div className="w-[52px] h-[52px] bg-[#404040] border-4 border-[#2a2520] rounded-full shadow-lg flex items-center justify-center">
                     <Image src="/icons/icon-notify.svg" alt="" width={20} height={20} />
                   </div>
-                  <div className="w-1 flex-1 bg-white/10 rounded-full mt-2" />
+
                 </div>
                 <div className="pt-2 flex-1">
                   <h3 className="text-[18px] font-black text-white tracking-[-0.9px]">{s.howStep3}</h3>
