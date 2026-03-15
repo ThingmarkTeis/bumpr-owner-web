@@ -255,7 +255,7 @@ export default function Home() {
           {/* Value prop cards */}
           <div className="relative z-10">
             {/* Vertical dashed line */}
-            <div className="absolute left-6 top-6 bottom-0 w-[2px] bg-white/20 rounded-full z-0" />
+            <div className="absolute left-6 top-6 bottom-[28px] w-[2px] bg-white/20 rounded-full z-0" />
 
             <div className="flex flex-col gap-3 relative z-[1]">
               {/* Card 1: No Commission */}
