@@ -308,6 +308,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ══════════════ SEE THE DIFFERENCE ══════════════ */}
+      <section className="w-full bg-[#fffdf5] pt-10 pb-16 overflow-hidden">
+        <div className="max-w-lg mx-auto px-6">
+          <h2 className="text-2xl font-black text-[#262626] text-center tracking-[-0.53px] mb-20">
+            {s.diffTitle}
+          </h2>
+
+          <div className="flex flex-col items-center gap-12">
+            <div className="flex flex-col items-center gap-4 w-[280px]">
+              <span className="text-base font-bold text-[#262626] tracking-[-0.71px]">{s.withoutBumpr}</span>
+              <div className="bg-white border border-[#f5f5f5] rounded-2xl shadow-sm p-3 w-full">
+                <CalendarGrid days={[
+                  "booked","booked","booked","booked","booked",
+                  "empty","empty","empty","empty","booked",
+                  "booked","booked","empty","empty","empty",
+                  "empty","empty","empty","empty","booked",
+                  "booked","empty","empty","empty","empty",
+                  "empty","empty","empty","empty","empty",
+                ]} />
+              </div>
+              <span className="text-sm font-medium text-[#737373] tracking-[-0.15px]">{s.emptyNights}</span>
+            </div>
+
+            <div className="flex flex-col items-center gap-4 w-[280px]">
+              <span className="text-base font-bold text-[#ffa314] tracking-[-0.71px]">{s.withBumpr}</span>
+              <div className="bg-white border border-[rgba(255,163,20,0.2)] rounded-2xl shadow-sm p-3 w-full">
+                <CalendarGrid days={[
+                  "booked","booked","booked","booked","booked",
+                  "bumpr","bumpr","bumpr","empty","booked",
+                  "booked","booked","empty","bumpr","bumpr",
+                  "bumpr","bumpr","bumpr","empty","booked",
+                  "booked","empty","bumpr","bumpr","bumpr",
+                  "bumpr","empty","empty","empty","empty",
+                ]} />
+              </div>
+              <span className="text-sm font-bold text-[#ffa314] tracking-[-0.15px]">{s.filledNights}</span>
+            </div>
+          </div>
+
+          <div className="bg-white border border-[#f5f5f5] rounded-full shadow-sm mt-12 px-4 py-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <div className="flex items-center gap-2.5">
+              <div className="w-3.5 h-3.5 rounded-[3px] bg-[#5e8a82]" />
+              <span className="text-xs font-bold text-[#525252] uppercase tracking-[0.6px]">{s.legendFull}</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <div className="w-3.5 h-3.5 rounded-[3px] bg-[#ffa314]" />
+              <span className="text-xs font-bold text-[#525252] uppercase tracking-[0.6px]">{s.legendBumpr}</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <div className="w-3.5 h-3.5 rounded-[3px] bg-[#eae4d8] border border-[#e0d8ca]" />
+              <span className="text-xs font-bold text-[#525252] uppercase tracking-[0.6px]">{s.legendEmpty}</span>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <a href="#signup" className="block mt-10 w-full bg-[#ffa314] text-white font-black text-[16px] text-center py-4 rounded-full shadow-[0px_8px_30px_rgba(0,0,0,0.08)] hover:brightness-110 transition-all">
+            {s.ctaTop}
+          </a>
+        </div>
+      </section>
+
       {/* ══════════════ COSTS SECTION ══════════════ */}
       <section className="w-full bg-[#fffdf5] py-20">
         <div className="max-w-lg mx-auto px-6">
@@ -506,67 +567,6 @@ export default function Home() {
             </p>
             <div className="mt-3 mx-auto w-12 h-1 bg-[#e8920e] rounded-full" />
           </div>
-        </div>
-      </section>
-
-      {/* ══════════════ SEE THE DIFFERENCE ══════════════ */}
-      <section className="w-full bg-[#fffdf5] pt-10 pb-16 overflow-hidden">
-        <div className="max-w-lg mx-auto px-6">
-          <h2 className="text-2xl font-black text-[#262626] text-center tracking-[-0.53px] mb-20">
-            {s.diffTitle}
-          </h2>
-
-          <div className="flex flex-col items-center gap-12">
-            <div className="flex flex-col items-center gap-4 w-[280px]">
-              <span className="text-base font-bold text-[#262626] tracking-[-0.71px]">{s.withoutBumpr}</span>
-              <div className="bg-white border border-[#f5f5f5] rounded-2xl shadow-sm p-3 w-full">
-                <CalendarGrid days={[
-                  "booked","booked","booked","booked","booked",
-                  "empty","empty","empty","empty","booked",
-                  "booked","booked","empty","empty","empty",
-                  "empty","empty","empty","empty","booked",
-                  "booked","empty","empty","empty","empty",
-                  "empty","empty","empty","empty","empty",
-                ]} />
-              </div>
-              <span className="text-sm font-medium text-[#737373] tracking-[-0.15px]">{s.emptyNights}</span>
-            </div>
-
-            <div className="flex flex-col items-center gap-4 w-[280px]">
-              <span className="text-base font-bold text-[#ffa314] tracking-[-0.71px]">{s.withBumpr}</span>
-              <div className="bg-white border border-[rgba(255,163,20,0.2)] rounded-2xl shadow-sm p-3 w-full">
-                <CalendarGrid days={[
-                  "booked","booked","booked","booked","booked",
-                  "bumpr","bumpr","bumpr","empty","booked",
-                  "booked","booked","empty","bumpr","bumpr",
-                  "bumpr","bumpr","bumpr","empty","booked",
-                  "booked","empty","bumpr","bumpr","bumpr",
-                  "bumpr","empty","empty","empty","empty",
-                ]} />
-              </div>
-              <span className="text-sm font-bold text-[#ffa314] tracking-[-0.15px]">{s.filledNights}</span>
-            </div>
-          </div>
-
-          <div className="bg-white border border-[#f5f5f5] rounded-full shadow-sm mt-12 px-4 py-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <div className="flex items-center gap-2.5">
-              <div className="w-3.5 h-3.5 rounded-[3px] bg-[#5e8a82]" />
-              <span className="text-xs font-bold text-[#525252] uppercase tracking-[0.6px]">{s.legendFull}</span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <div className="w-3.5 h-3.5 rounded-[3px] bg-[#ffa314]" />
-              <span className="text-xs font-bold text-[#525252] uppercase tracking-[0.6px]">{s.legendBumpr}</span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <div className="w-3.5 h-3.5 rounded-[3px] bg-[#eae4d8] border border-[#e0d8ca]" />
-              <span className="text-xs font-bold text-[#525252] uppercase tracking-[0.6px]">{s.legendEmpty}</span>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <a href="#signup" className="block mt-10 w-full bg-[#ffa314] text-white font-black text-[16px] text-center py-4 rounded-full shadow-[0px_8px_30px_rgba(0,0,0,0.08)] hover:brightness-110 transition-all">
-            {s.ctaTop}
-          </a>
         </div>
       </section>
 
