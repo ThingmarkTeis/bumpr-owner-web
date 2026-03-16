@@ -88,24 +88,24 @@ const t = {
     errorMsg: "Something went wrong. Please try again.",
   },
   id: {
-    heroBefore: "Anda ",
-    heroAccent: "rugi",
-    heroAfter: " setiap malam villa Anda kosong..",
+    heroBefore: "Isi villa Anda saat kosong. ",
+    heroAccent: "Ambil kembali dalam 18 jam.",
+    heroAfter: "",
     ctaTop: "Daftar \u2014 tanpa komitmen",
-    noCommLabel: "Anda dapat 100% uangnya",
-    noCommSub: "kami kenakan biaya ke tamu, bukan Anda",
+    noCommLabel: "Anda dapat 100%",
+    noCommSub: "Biaya dibebankan ke tamu, bukan ke Anda.",
     takeBack: "Ambil kembali villa kapan saja",
     liveDemand: "Permintaan Aktif",
     liveDemandSub: "Traveler sudah menunggu untuk menginap",
-    costsTitle: "Villa kosong membuat Anda rugi",
+    costsTitle: "Villa kosong tetap menghabiskan uang Anda",
     costsOut: "BIAYA KELUAR",
     costItems: ["Staf", "Kolam", "Taman", "Listrik", "Air", "Perbaikan"],
-    standbyIn: "STANDBY MASUK",
-    standbyDesc: "Tamu Bumpr menghentikan kerugian Anda",
-    costsDesc: "Tamu Bumpr membayar per malam. Membuat Anda untung, bukan rugi \u2014 Anda yang tentukan tarifnya.",
+    standbyIn: "TAMU BUMPR MASUK",
+    standbyDesc: "Tamu Bumpr menutup biaya operasional. Dan memberi keuntungan.",
+    costsDesc: "Tamu Bumpr membayar per malam. Cukup untuk menutupi biaya operasional villa Anda + keuntungan \u2014 Anda yang menentukan tarif.",
     costs18h: "Dan saat booking harga penuh datang \u2014 18 jam, villa kembali milik Anda.",
-    howTitle: "Cara Mendapatkan Villa Anda Kembali",
-    howStep1: "Anda dapat booking harga penuh",
+    howTitle: "Cara Mengambil Kembali Villa Anda",
+    howStep1: "Anda tetap bisa menerima booking harga penuh.",
     howStep1Sub: "Dari Airbnb, Booking.com, atau langsung.",
     howStep2: "Tekan satu tombol (atau WhatsApp kami)",
     howStep2Desc: "Buka aplikasi Bumpr dan tekan satu tombol. Atau kirim pesan WhatsApp dan kami yang urus.",
@@ -137,14 +137,14 @@ const t = {
     trustTerms: "Semua tamu setuju syarat sebelum booking",
     trustMove: "Kami urus perpindahan tamu \u2014 Anda tidak perlu khawatir",
     whoLabel: "SIAPA TAMU BUMPR?",
-    whoQuote: "\u201CAda gelombang besar tamu fleksibel yang mencari tempat tinggal terjangkau di Bali.\u201D",
-    whoSub: "Mereka ingin tinggal menengah, dan sangat bersedia menyesuaikan dengan jadwal Anda.",
+    whoQuote: "Ada banyak tamu fleksibel yang mencari villa saat ada ketersediaan di Bali.",
+    whoSub: "Mereka mencari tinggal jangka menengah dan memahami bahwa villa dapat kembali ke booking harga penuh.",
     whoCard1Title: "Sangat adaptif & fleksibel",
-    whoCard1Desc: "Mereka mengutamakan harga wajar dan siap menyesuaikan dengan ketersediaan Anda.",
-    whoCard2Title: "Sopan & berdampak rendah",
-    whoCard2Desc: "Tamu Bumpr adalah traveler tenang dan bertanggung jawab yang merawat villa Anda.",
-    whoCard3Title: "Sudah di Bali",
-    whoCard3Desc: "Digital nomad, pekerja remote, dan traveler jangka panjang yang sudah tinggal di pulau ini.",
+    whoCard1Desc: "Mereka mengutamakan harga yang wajar dan siap menyesuaikan dengan ketersediaan Anda.",
+    whoCard2Title: "Mencari mingguan, bukan harian",
+    whoCard2Desc: "",
+    whoCard3Title: "Sudah setuju pindah dalam 18 jam & memberikan deposit",
+    whoCard3Desc: "",
     signupTitle: "Daftar Sekarang",
     signupDesc: "Tanpa komitmen. Kami hubungi Anda saat Bumpr siap diluncurkan.",
     namePlace: "Nama Anda",
@@ -214,8 +214,7 @@ export default function Home() {
         body: JSON.stringify({ ...form, lang }),
       });
       if (!res.ok) throw new Error();
-      setStatus("success");
-      setForm({ name: "", email: "", location: "", villas: "", licensed: "" });
+      window.location.href = `/thank-you?lang=${lang}`;
     } catch {
       setStatus("error");
     }
@@ -237,12 +236,13 @@ export default function Home() {
             </div>
           </header>
 
-          {/* Floating currency symbols — scattered around heading area */}
-          <div className="absolute left-0 right-0 top-[15%] bottom-[45%] opacity-30 pointer-events-none select-none">
-            <span className="absolute text-[120px] font-black text-[#d92d20]/60 -rotate-[15deg] left-[2%] top-[5%] leading-none">$</span>
-            <span className="absolute text-[110px] font-black text-[#d92d20]/60 -rotate-[20deg] right-[5%] top-0 leading-none">$</span>
-            <span className="absolute text-[90px] font-black text-[#d92d20]/60 rotate-[12deg] right-[10%] bottom-[10%] leading-none">Rp</span>
-            <span className="absolute text-[70px] font-black text-[#d92d20]/60 rotate-[25deg] left-[10%] bottom-0 leading-none">$</span>
+          {/* Floating currency symbols — surrounding the H1 */}
+          <div className="absolute left-0 right-0 top-[18%] bottom-[50%] opacity-25 pointer-events-none select-none overflow-hidden">
+            <span className="absolute text-[110px] font-black text-[#d92d20]/50 -rotate-[12deg] -left-[10px] top-[0%] leading-none">$</span>
+            <span className="absolute text-[95px] font-black text-[#d92d20]/50 rotate-[15deg] -right-[5px] top-[-5%] leading-none">&euro;</span>
+            <span className="absolute text-[80px] font-black text-[#d92d20]/50 -rotate-[10deg] right-[2%] bottom-[0%] leading-none">Rp</span>
+            <span className="absolute text-[70px] font-black text-[#d92d20]/50 rotate-[18deg] left-[3%] bottom-[0%] leading-none">&yen;</span>
+            <span className="absolute text-[50px] font-black text-[#d92d20]/40 -rotate-[8deg] right-[15%] top-[45%] leading-none">$</span>
           </div>
 
           {/* Heading */}
