@@ -197,7 +197,7 @@ function CalendarGrid({ days }: { days: DayStatus[] }) {
 /* ──────────────────────────── Page ──────────────────────────── */
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("id");
   const [form, setForm] = useState({ name: "", email: "", location: "", villas: "", licensed: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -236,13 +236,18 @@ export default function Home() {
             </div>
           </header>
 
-          {/* Floating currency symbols — surrounding the H1 */}
-          <div className="absolute left-0 right-0 top-[18%] bottom-[50%] opacity-25 pointer-events-none select-none overflow-hidden">
-            <span className="absolute text-[110px] font-black text-[#d92d20]/50 -rotate-[12deg] -left-[10px] top-[0%] leading-none">$</span>
-            <span className="absolute text-[95px] font-black text-[#d92d20]/50 rotate-[15deg] -right-[5px] top-[-5%] leading-none">&euro;</span>
-            <span className="absolute text-[80px] font-black text-[#d92d20]/50 -rotate-[10deg] right-[2%] bottom-[0%] leading-none">Rp</span>
-            <span className="absolute text-[70px] font-black text-[#d92d20]/50 rotate-[18deg] left-[3%] bottom-[0%] leading-none">&yen;</span>
-            <span className="absolute text-[50px] font-black text-[#d92d20]/40 -rotate-[8deg] right-[15%] top-[45%] leading-none">$</span>
+          {/* Bumping circles */}
+          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+            <style>{`
+              @keyframes bump1 { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(12px,-18px) scale(1.05)} 50%{transform:translate(-8px,10px) scale(0.95)} 75%{transform:translate(15px,6px) scale(1.02)} }
+              @keyframes bump2 { 0%,100%{transform:translate(0,0) scale(1)} 30%{transform:translate(-15px,12px) scale(1.06)} 60%{transform:translate(10px,-14px) scale(0.94)} 80%{transform:translate(-6px,-8px) scale(1.03)} }
+              @keyframes bump3 { 0%,100%{transform:translate(0,0) scale(1)} 20%{transform:translate(8px,16px) scale(0.96)} 50%{transform:translate(-12px,-10px) scale(1.04)} 70%{transform:translate(14px,-5px) scale(0.98)} }
+            `}</style>
+            <div className="absolute w-[120px] h-[120px] rounded-full bg-white/[0.07] left-[-20px] top-[18%]" style={{animation:"bump1 6s ease-in-out infinite"}} />
+            <div className="absolute w-[80px] h-[80px] rounded-full bg-white/[0.05] right-[5%] top-[12%]" style={{animation:"bump2 7s ease-in-out infinite"}} />
+            <div className="absolute w-[60px] h-[60px] rounded-full bg-white/[0.08] left-[30%] top-[35%]" style={{animation:"bump3 5s ease-in-out infinite"}} />
+            <div className="absolute w-[100px] h-[100px] rounded-full bg-white/[0.04] right-[-10px] top-[40%]" style={{animation:"bump1 8s ease-in-out infinite 1s"}} />
+            <div className="absolute w-[45px] h-[45px] rounded-full bg-white/[0.09] left-[15%] top-[50%]" style={{animation:"bump2 5.5s ease-in-out infinite 0.5s"}} />
           </div>
 
           {/* Heading */}
