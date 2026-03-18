@@ -793,7 +793,7 @@ export default function Home() {
         <div className="max-w-lg mx-auto px-6 flex flex-col items-center gap-4">
           <BumprLogo />
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/4581944301"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-[#25d366] hover:bg-[#20bd5a] transition-colors text-white font-bold text-[15px] px-6 py-3 rounded-full shadow-[0px_4px_15px_rgba(37,211,102,0.3)]"
