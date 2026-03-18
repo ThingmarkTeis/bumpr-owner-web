@@ -197,7 +197,7 @@ function CalendarGrid({ days }: { days: DayStatus[] }) {
 /* ──────────────────────────── Page ──────────────────────────── */
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("id");
+  const [lang, setLang] = useState<Lang>("en");
   const [form, setForm] = useState({ name: "", email: "", location: "", villas: "", licensed: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
