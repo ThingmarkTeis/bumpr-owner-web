@@ -202,7 +202,6 @@ export default function Home() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const s = t[lang];
-  const villaOptions = ["1", "2", "3", "4+"];
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -724,22 +723,14 @@ export default function Home() {
             />
             <div>
               <p className="text-sm font-medium text-[#948d85] mb-2">{s.villasLabel}</p>
-              <div className="flex gap-2">
-                {villaOptions.map((opt) => (
-                  <button
-                    key={opt}
-                    type="button"
-                    onClick={() => setForm({ ...form, villas: opt })}
-                    className={`flex-1 py-3 rounded-[10px] text-base font-bold transition-all ${
-                      form.villas === opt
-                        ? "bg-[#ffa314] text-white"
-                        : "bg-[#fffdf5] border border-[#e8dfd2] text-[#2a2520]"
-                    }`}
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
+              <input
+                type="number"
+                min="1"
+                placeholder={lang === "en" ? "e.g. 3" : "misal 3"}
+                value={form.villas}
+                onChange={(e) => setForm({ ...form, villas: e.target.value })}
+                className="w-full bg-[#fffdf5] border border-[#e8dfd2] rounded-[10px] px-4 py-4 text-base font-medium text-[#2a2520] placeholder:text-[#948d85] tracking-[-0.31px] outline-none focus:border-[#ffa314] transition-colors"
+              />
             </div>
 
             {/* Licensed yes/no */}
